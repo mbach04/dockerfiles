@@ -1,10 +1,12 @@
 #!/usr/bin/env groovy
 pipeline {
-    agent { dockerfile true }
+    agent {
+        docker { image 'node:7-alpine' }
+    }
     stages {
         stage('Test') {
             steps {
-                sh 'which apache2'
+                sh 'node --version'
             }
         }
     }
